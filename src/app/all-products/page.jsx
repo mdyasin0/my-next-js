@@ -8,7 +8,7 @@ export default function Products() {
 
   // Fetch products.json
   useEffect(() => {
-    fetch("/products.json")
+    fetch("api/productdata")
       .then((res) => res.json())
       .then((data) => {
         setProducts(data)
@@ -102,7 +102,7 @@ export default function Products() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {filtered.map((product) => (
             <div
-              key={product.id}
+              key={product._id}
               className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col"
             >
               <img

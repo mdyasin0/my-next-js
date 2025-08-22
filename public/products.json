@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    
     "name": "Laptop Pro 15",
     "image": "https://i.ibb.co.com/yBd4PJdF/photo-1593642702821-c8da6771f0c6.jpg",
     "description": "High-performance laptop for work and gaming.",
@@ -14,7 +14,7 @@
     "deliveryCharge": 20
   },
   {
-    "id": 2,
+    
     "name": "Vivo X100",
     "image": "https://i.ibb.co.com/217SKBP1/634d031dba8fe623b47893cc-smart-phone-android-8-1-smartphone-hd.jpg",
     "description": "Sleek Android smartphone with powerful camera.",
@@ -28,7 +28,7 @@
     "deliveryCharge": 10
   },
   {
-    "id": 3,
+    
     "name": "HP EliteBook 840",
     "image": "https://i.ibb.co.com/bMjV4qVw/hp-elitebook-mobile.jpg",
     "description": "Business laptop with long battery life.",
@@ -42,7 +42,7 @@
     "deliveryCharge": 15
   },
   {
-    "id": 4,
+    
     "name": "Motorola G86",
     "image": "https://i.ibb.co.com/gFwpD0KW/motorola-moto-g86-power-pantone-spellbound-official-color-image.webp",
     "description": "Durable smartphone with large battery.",
@@ -56,7 +56,7 @@
     "deliveryCharge": 10
   },
   {
-    "id": 5,
+    
     "name": "MacBook Air M4",
     "image": "https://i.ibb.co.com/wrMQ50wy/m4-macbook-air-15-11.webp",
     "description": "Lightweight and fast Apple laptop.",
@@ -70,7 +70,7 @@
     "deliveryCharge": 25
   },
   {
-    "id": 6,
+    
     "name": "Vivo V21",
     "image": "https://i.ibb.co.com/5XcQSX1L/vivo-mobile-phone-7-38mm-ultra-smooth-body-170g-light-2-5d-adjusted-outline-for-a-great-hold-703.jpg",
     "description": "Slim phone with stunning display.",
@@ -84,7 +84,7 @@
     "deliveryCharge": 10
   },
   {
-    "id": 7,
+    
     "name": "Dell Inspiron 16",
     "image": "https://i.ibb.co.com/991CGRZW/00w6ux-EFGf-XVOhs-Ap-Y2k02e-53.webp",
     "description": "Performance laptop for home and office.",
@@ -98,7 +98,7 @@
     "deliveryCharge": 20
   },
   {
-    "id": 8,
+    
     "name": "Samsung Galaxy S22",
     "image": "https://i.ibb.co.com/M5RGQGdf/1726289978963913.jpg",
     "description": "Flagship smartphone with excellent camera.",
@@ -112,7 +112,7 @@
     "deliveryCharge": 15
   },
   {
-    "id": 9,
+    
     "name": "Lenovo ThinkPad X1",
     "image": "https://i.ibb.co.com/yF6Rwjc1/images.jpg",
     "description": "Durable business laptop with sleek design.",
@@ -126,7 +126,7 @@
     "deliveryCharge": 20
   },
   {
-    "id": 10,
+    
     "name": "iPhone 14 Pro",
     "image": "https://i.ibb.co.com/KzR5QZNs/images-1.jpg",
     "description": "Premium Apple smartphone with OLED display.",

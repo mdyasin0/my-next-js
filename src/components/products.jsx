@@ -7,7 +7,8 @@ export default function Products() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await fetch("/products.json")
+        
+        const res = await fetch("api/productdata")
         const data = await res.json()
         setProducts(data.slice(0, 8)) 
       } catch (error) {
@@ -27,7 +28,7 @@ export default function Products() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {products.map((product) => (
             <div
-              key={product.id}
+              key={product._id}
               className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col justify-between"
             >
               {/* Product Image */}
