@@ -34,7 +34,7 @@ export default function Login() {
         confirmButtonColor: "#27ce75",
       }).then(() => {
       
-        window.location.href = "/"
+        window.location.href = "/all-products"
       })
     }
   }

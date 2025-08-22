@@ -1,6 +1,6 @@
 import { MongoClient, ServerApiVersion } from "mongodb"
 
-const uri = process.env.DB_URL
+const uri = process.env.NEXT_PUBLIC_DB_URL
 
 let client
 let clientPromise

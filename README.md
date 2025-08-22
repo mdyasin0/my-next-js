@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# TechShop - Next.js E-commerce App
 
-## Getting Started
+## Project Description
+**TechShop** is a simple e-commerce application built using **Next.js 15 (App Router)**.  
+It features public pages such as a landing page and product listings, as well as protected pages for authenticated users to manage products.  
+Authentication is implemented using **NextAuth.js**, allowing credential-based and social login (Google).
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Core Features
+Landing Page
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Navbar, Hero, Product Highlights, Footer
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Navigation links to login and products
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+No authentication required
 
-## Learn More
+Login Page (/login)
 
-To learn more about Next.js, take a look at the following resources:
+NextAuth credential login or Google login
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Redirects authenticated users to /products
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Product List Page (/products)
 
-## Deploy on Vercel
+Publicly accessible
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Fetches products from backend
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Shows name, description, price, and a details button
+
+Product Details Page (/products/[id])
+
+Shows detailed information for a single product
+
+Publicly accessible
+
+Add Product Page (/productdata/add-product)
+
+Protected route
+
+Form to add a new product
+
+Stores product in database
+
+
+Technologies Used
+Next.js 15 (App Router)
+
+NextAuth.js for authentication
+
+MongoDB for product storage
+
+TailwindCSS for styling
+
+Optional: SweetAlert 
+
+Deployment
+Vercel

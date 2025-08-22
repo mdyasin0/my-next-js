@@ -67,12 +67,12 @@ function NavbarContent({ isOpen, setIsOpen }) {
             )}
 
             {!isLoggedIn ? (
-              <button
-                onClick={() => signIn()}
+              <Link href="/login"
+                
                 className="px-2 py-1 bg-[#ff913d] text-white rounded-lg font-semibold hover:bg-[#c24242] transition"
               >
                 Login
-              </button>
+              </Link>
             ) : (
               <button
                 onClick={handleLogout}
@@ -121,12 +121,12 @@ function NavbarContent({ isOpen, setIsOpen }) {
           )}
 
           {!isLoggedIn ? (
-            <button
-              onClick={() => signIn()}
+            <Link href='/login'
+              
               className="w-full text-left px-3 py-2 bg-[#ff913d] text-white rounded-lg font-semibold hover:bg-[#c24242] transition"
             >
               Login
-            </button>
+            </Link>
           ) : (
             <button
               onClick={handleLogout}
