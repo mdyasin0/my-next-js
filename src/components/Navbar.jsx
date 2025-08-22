@@ -20,17 +20,23 @@ export default function Navbar() {
             <Link href="/" className="hover:text-[#ff913d]">
               Home
             </Link>
-            <Link href="/products" className="hover:text-[#ff913d]">
+            <Link href="/all-products" className="hover:text-[#ff913d]">
               Product
             </Link>
             <Link href="/add-product" className="hover:text-[#ff913d]">
               Add Product
             </Link>
-            <Link href="/login" className=" bg-[#c24242] py-1 px-2 text-white rounded-lg hover:text-[#ff913d]">
-              Login
+            <Link
+              href="/add-product"
+              className="px-2 py-1 bg-[#ff913d] text-white rounded-lg font-semibold hover:bg-[#c24242] transition"
+            >
+             login
             </Link>
-            <Link href="/logout" className=" bg-[#c24242] py-1 px-2 text-white rounded-lg hover:text-[#ff913d]">
-              Logout
+            <Link
+              href="/add-product"
+              className="px-2 py-1 bg-[#ff913d] text-white rounded-lg font-semibold hover:bg-[#c24242] transition"
+            >
+              logout
             </Link>
           </div>
 
@@ -56,7 +62,7 @@ export default function Navbar() {
             Home
           </Link>
           <Link
-            href="/products"
+            href="/all-products"
             className="block px-3 py-2 rounded-md hover:bg-[#c24242] hover:text-white"
           >
             Product
@@ -68,17 +74,17 @@ export default function Navbar() {
             Add Product
           </Link>
           <Link
-            href="/login"
-            className="block px-3 py-2 rounded-md hover:bg-[#c24242] hover:text-white"
-          >
-            Login
-          </Link>
-          <Link
-            href="/logout"
-            className="block px-3 py-2 rounded-md hover:bg-[#c24242] hover:text-white"
-          >
-            Logout
-          </Link>
+              href="/add-product"
+              className="px-2 py-1 bg-[#ff913d] text-white rounded-lg font-semibold hover:bg-[#c24242] transition"
+            >
+             login
+            </Link>
+            <Link
+              href="/add-product"
+              className="px-2 py-1 bg-[#ff913d] text-white rounded-lg font-semibold hover:bg-[#c24242] transition"
+            >
+              logout
+            </Link>
         </div>
       )}
     </nav>
