@@ -3,6 +3,7 @@
 import { signIn } from "next-auth/react"
 import Link from "next/link"
 import React, { useState } from "react"
+import Swal from "sweetalert2"
 
 export default function Login() {
   const [email, setEmail] = useState("")
@@ -11,15 +12,32 @@ export default function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault()
-    await signIn("credentials", {
+
+    const result = await signIn("credentials", {
       email,
       password,
-      redirect: true, 
-      callbackUrl: "/" 
+      redirect: false, 
     })
-  }
 
- 
+    if (result?.error) {
+      Swal.fire({
+        icon: "error",
+        title: "Login Failed",
+        text: result.error,
+        confirmButtonColor: "#27ce75",
+      })
+    } else {
+      Swal.fire({
+        icon: "success",
+        title: "Login Successful",
+        text: "You are now logged in!",
+        confirmButtonColor: "#27ce75",
+      }).then(() => {
+      
+        window.location.href = "/"
+      })
+    }
+  }
 
   return (
     <section className="bg-[#f2efee] min-h-screen flex items-center justify-center">
@@ -59,8 +77,6 @@ export default function Login() {
           >
             Login
           </button>
-
-          
         </form>
 
         <p className="text-center pt-5 text-[#040316]">

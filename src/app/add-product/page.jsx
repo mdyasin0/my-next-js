@@ -1,8 +1,11 @@
 "use client"
 
 import { useState } from "react"
+import Swal from "sweetalert2"
+import { useRouter } from "next/navigation"
 
 export default function AddProduct() {
+  const router = useRouter()
   const [formData, setFormData] = useState({
     name: "",
     image: "",
@@ -15,8 +18,6 @@ export default function AddProduct() {
     totalStock: "",
     deliveryCharge: ""
   })
-
-  const [message, setMessage] = useState("")
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -43,25 +44,28 @@ export default function AddProduct() {
 
       const data = await res.json()
       if (res.ok) {
-        setMessage("Product added successfully!")
-        setFormData({
-          name: "",
-          image: "",
-          description: "",
-          price: "",
-          details: "",
-          grantee: "",
-          warranty: "",
-          type: "Laptop",
-          totalStock: "",
-          deliveryCharge: ""
+        await Swal.fire({
+          icon: "success",
+          title: "Success",
+          text: "Product added successfully!",
+          timer: 2000,
+          showConfirmButton: false
         })
+        router.push("/all-products") 
       } else {
-        setMessage(data.error || "Failed to add product")
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: data.error || "Failed to add product"
+        })
       }
     } catch (error) {
       console.error(error)
-      setMessage("Something went wrong")
+      Swal.fire({
+        icon: "error",
+        title: "Error",
+        text: "Something went wrong"
+      })
     }
   }
 
@@ -166,7 +170,6 @@ export default function AddProduct() {
             Add Product
           </button>
         </form>
-        {message && <p className="mt-4 text-center text-[#ff913d]">{message}</p>}
       </div>
     </section>
   )

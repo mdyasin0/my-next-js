@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { SessionProvider, signIn, signOut, useSession } from "next-auth/react";
+import Swal from "sweetalert2"; 
+import { useRouter } from "next/navigation";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,6 +20,27 @@ export default function Navbar() {
 function NavbarContent({ isOpen, setIsOpen }) {
   const { data: session, status } = useSession();
   const isLoggedIn = status === "authenticated";
+  const router = useRouter();
+
+  const handleLogout = async () => {
+    try {
+      await signOut({ redirect: false }); 
+      Swal.fire({
+        icon: "success",
+        title: "Logged out!",
+        text: "You have been logged out successfully.",
+        timer: 1500,
+        showConfirmButton: false,
+      });
+      router.push("/"); // redirect to home
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Logout Failed",
+        text: "Something went wrong while logging out.",
+      });
+    }
+  };
 
   return (
     <nav className="bg-[#27ce75] text-[#040316] shadow-md">
@@ -52,7 +75,7 @@ function NavbarContent({ isOpen, setIsOpen }) {
               </button>
             ) : (
               <button
-                onClick={() => signOut({ callbackUrl: "/" })}
+                onClick={handleLogout}
                 className="px-2 py-1 bg-[#ff913d] text-white rounded-lg font-semibold hover:bg-[#c24242] transition"
               >
                 Logout
@@ -106,7 +129,7 @@ function NavbarContent({ isOpen, setIsOpen }) {
             </button>
           ) : (
             <button
-              onClick={() => signOut({ callbackUrl: "/" })}
+              onClick={handleLogout}
               className="w-full text-left px-3 py-2 bg-[#ff913d] text-white rounded-lg font-semibold hover:bg-[#c24242] transition"
             >
               Logout
