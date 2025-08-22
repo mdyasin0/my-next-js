@@ -1,10 +1,23 @@
-"use client"
-import React, { useState } from "react"
-import Link from "next/link"
-import { Menu, X } from "lucide-react"
+"use client";
+
+import React, { useState } from "react";
+import Link from "next/link";
+import { Menu, X } from "lucide-react";
+import { SessionProvider, signIn, signOut, useSession } from "next-auth/react";
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <SessionProvider>
+      <NavbarContent isOpen={isOpen} setIsOpen={setIsOpen} />
+    </SessionProvider>
+  );
+}
+
+function NavbarContent({ isOpen, setIsOpen }) {
+  const { data: session, status } = useSession();
+  const isLoggedIn = status === "authenticated";
 
   return (
     <nav className="bg-[#27ce75] text-[#040316] shadow-md">
@@ -16,28 +29,35 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-6">
+          <div className="hidden md:flex space-x-6 items-center">
             <Link href="/" className="hover:text-[#ff913d]">
               Home
             </Link>
             <Link href="/all-products" className="hover:text-[#ff913d]">
               Product
             </Link>
-            <Link href="/add-product" className="hover:text-[#ff913d]">
-              Add Product
-            </Link>
-            <Link
-              href="/add-product"
-              className="px-2 py-1 bg-[#ff913d] text-white rounded-lg font-semibold hover:bg-[#c24242] transition"
-            >
-             login
-            </Link>
-            <Link
-              href="/add-product"
-              className="px-2 py-1 bg-[#ff913d] text-white rounded-lg font-semibold hover:bg-[#c24242] transition"
-            >
-              logout
-            </Link>
+
+            {isLoggedIn && (
+              <Link href="/add-product" className="hover:text-[#ff913d]">
+                Add Product
+              </Link>
+            )}
+
+            {!isLoggedIn ? (
+              <button
+                onClick={() => signIn()}
+                className="px-2 py-1 bg-[#ff913d] text-white rounded-lg font-semibold hover:bg-[#c24242] transition"
+              >
+                Login
+              </button>
+            ) : (
+              <button
+                onClick={() => signOut({ callbackUrl: "/" })}
+                className="px-2 py-1 bg-[#ff913d] text-white rounded-lg font-semibold hover:bg-[#c24242] transition"
+              >
+                Logout
+              </button>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -67,26 +87,33 @@ export default function Navbar() {
           >
             Product
           </Link>
-          <Link
-            href="/add-product"
-            className="block px-3 py-2 rounded-md hover:bg-[#c24242] hover:text-white"
-          >
-            Add Product
-          </Link>
-          <Link
-              href="/add-product"
-              className="px-2 py-1 bg-[#ff913d] text-white rounded-lg font-semibold hover:bg-[#c24242] transition"
-            >
-             login
-            </Link>
+
+          {isLoggedIn && (
             <Link
               href="/add-product"
-              className="px-2 py-1 bg-[#ff913d] text-white rounded-lg font-semibold hover:bg-[#c24242] transition"
+              className="block px-3 py-2 rounded-md hover:bg-[#c24242] hover:text-white"
             >
-              logout
+              Add Product
             </Link>
+          )}
+
+          {!isLoggedIn ? (
+            <button
+              onClick={() => signIn()}
+              className="w-full text-left px-3 py-2 bg-[#ff913d] text-white rounded-lg font-semibold hover:bg-[#c24242] transition"
+            >
+              Login
+            </button>
+          ) : (
+            <button
+              onClick={() => signOut({ callbackUrl: "/" })}
+              className="w-full text-left px-3 py-2 bg-[#ff913d] text-white rounded-lg font-semibold hover:bg-[#c24242] transition"
+            >
+              Logout
+            </button>
+          )}
         </div>
       )}
     </nav>
-  )
+  );
 }

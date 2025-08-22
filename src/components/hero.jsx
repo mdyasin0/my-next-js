@@ -19,17 +19,12 @@ export default function Hero() {
 
           <div className="mt-8 flex space-x-4">
             <Link
-              href="/products"
+              href="/all-products"
               className="px-6 py-3 bg-[#27ce75] text-white rounded-lg font-semibold hover:bg-[#c24242] transition"
             >
               Shop Now
             </Link>
-            <Link
-              href="/add-product"
-              className="px-6 py-3 bg-[#ff913d] text-white rounded-lg font-semibold hover:bg-[#c24242] transition"
-            >
-              Sell Product
-            </Link>
+           
           </div>
         </div>
 

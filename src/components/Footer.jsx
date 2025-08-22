@@ -49,11 +49,7 @@ export default function Footer() {
           <p className="mt-4 text-gray-400">Email: support@myshop.com</p>
           <p className="text-gray-400">Phone: +880 1234-567890</p>
 
-          <div className="flex space-x-4 mt-4">
-            <a href="#" className="hover:text-[#27ce75]">Facebook</a>
-            <a href="#" className="hover:text-[#27ce75]">Twitter</a>
-            <a href="#" className="hover:text-[#27ce75]">Instagram</a>
-          </div>
+         
         </div>
       </div>
 
